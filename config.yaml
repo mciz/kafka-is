@@ -20,6 +20,10 @@ items:
     description: Image with Apache Kafka and Apache ZooKeeper
     required: true
     value: mciz/kafka-is
+  - name: VOLUME_CAPACITY
+    description: Persistent volume capacity per pod, e.g. 512Mi, 2Gi
+    required: true
+    value: 512Mi
   objects:
   - apiVersion: v1
     kind: DeploymentConfig
