@@ -19,7 +19,7 @@ items:
   - name: IMAGE
     description: Image with Apache Kafka and Apache ZooKeeper
     required: true
-    value: apache-kafka/kafka-is
+    value: is-os/kafka-is
   - name: VOLUME_CAPACITY
     description: Persistent volume capacity per pod, e.g. 512Mi, 2Gi
     required: true
