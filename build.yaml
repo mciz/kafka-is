@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Template
+metadata:
+  name: apache-kafka-build
+  annotations:
+    description: Kafka-is builder
+    tags: messaging,kafka,zookeeper
+
+parameters:
+- name: SOURCE_REPOSITORY_URL
+  description: The URL of the Git repository with the Kafka-is Dockerfile
+  required: true
+  value: https://github.com/mciz/kafka-is.git
+- name: NAME
+  description: Name prefix for each object created
+  required: true
+  value: apache-kafka
+
+objects:
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    name: ${NAME}
+
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    name: ${NAME}
+  spec:
+    strategy:
+      type: Docker
+    source:
+      type: Git
+      git:
+        uri: ${SOURCE_REPOSITORY_URL}
+    output:
+      to:
+        kind: ImageStream
+        name: ${NAME}
+    triggers:
+    - type: ConfigChange
