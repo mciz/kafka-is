@@ -4,7 +4,6 @@ metadata: {}
 
 items:
 
-
 - apiVersion: v1
   kind: Template
   metadata:
@@ -59,16 +58,17 @@ items:
             - config/server.properties
             - --override
             - advertised.host.name=${NAME}
+            - --override            
             volumeMounts:
             - mountPath: /tmp/kafka-logs
               name: kafka-logs
             ports:
-            - containerPort: 9092
-            volumes:
-            - name: kafka-logs
-              emptyDir: {}
-            - name: zookeeper
-              emptyDir: {} 
+            - containerPort: 9092          
+          volumes:
+          - name: kafka-logs
+            emptyDir: {}
+          - name: zookeeper
+            emptyDir: {}
   - apiVersion: v1
     kind: Service
     metadata:
