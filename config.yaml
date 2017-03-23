@@ -40,7 +40,7 @@ items:
             deploymentconfig: ${NAME}
         spec:
           containers:
-	        - name: apache-zookeeper
+          - name: apache-zookeeper
             image: ${IMAGE}
             command:
             - bin/zookeeper-server-start.sh
@@ -63,7 +63,7 @@ items:
             - mountPath: /tmp/kafka-logs
               name: kafka-logs
             ports:
-            - containerPort: 9092   
+            - containerPort: 9092
             volumes:
             - name: kafka-logs
               emptyDir: {}
