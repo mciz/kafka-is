@@ -3,6 +3,8 @@ apiVersion: v1
 metadata: {}
 
 items:
+
+
 - apiVersion: v1
   kind: Template
   metadata:
@@ -35,7 +37,7 @@ items:
       template:
         metadata:
           labels:
-            deploymentconfig: ${NAME}
+          deploymentconfig: ${NAME}
         spec:
           containers:
 	    - name: apache-zookeeper
