@@ -28,7 +28,7 @@ objects:
     name: ${NAME}
   spec:
     strategy:
-      type: Docker
+      type: Source
     source:
       type: Git
       git:
