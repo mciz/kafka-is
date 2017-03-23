@@ -37,11 +37,11 @@ items:
       template:
         metadata:
           labels:
-          deploymentconfig: ${NAME}
+            deploymentconfig: ${NAME}
         spec:
           containers:
-	    - name: apache-zookeeper
-              image: ${IMAGE}
+	        - name: apache-zookeeper
+            image: ${IMAGE}
             command:
             - bin/zookeeper-server-start.sh
             args:
