@@ -7,5 +7,4 @@ RUN mkdir -p /opt/kafka \
   && yum clean all
 RUN chmod -R a=u /opt/kafka
 WORKDIR /opt/kafka
-VOLUME /tmp/kafka-logs /tmp/zookeeper
 EXPOSE 2181 2888 3888 9092
