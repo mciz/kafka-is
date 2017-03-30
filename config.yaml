@@ -78,3 +78,12 @@ items:
         port: 2181
       selector:
         deploymentconfig: ${NAME}
+  - apiVersion: v1
+    kind: Route
+    metadata:
+      name: ${NAME}
+    spec:
+      host: www.kafka-is.com
+      to:
+        kind: Service
+        name: ${NAME}
