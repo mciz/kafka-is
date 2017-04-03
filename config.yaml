@@ -91,7 +91,7 @@ items:
             - -Ddruid.realtime.specFile=/opt/druid/config/infispectorDruid.spec
             - -classpath
             - "config/_common:config/realtime:lib/*"
-            - io.druid.cli.Main server
+            - io.druid.cli.Main druid/server
             - realtime
             volumeMounts:
             - mountPath: /druid/tmp/druid-logs
