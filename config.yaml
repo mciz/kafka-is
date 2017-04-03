@@ -84,6 +84,8 @@ items:
             emptyDir: {}
           - name: zookeeper
             emptyDir: {}
+          - name: druid-logs
+            emptyDir: {}
   - apiVersion: v1
     kind: Service
     metadata:
