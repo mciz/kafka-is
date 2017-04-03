@@ -90,8 +90,8 @@ items:
             - -Dfile.encoding=UTF-8
             - -Ddruid.realtime.specFile=/opt/druid/config/infispectorDruid.spec
             - -classpath
-            - "config/_common:config/realtime:lib/*"
-            - io.druid.cli.Main druid/server
+            - "/opt/druid/config/_common:/opt/druid/config/realtime:/opt/druid/lib/*"
+            - io.druid.cli.Main server
             - realtime
             volumeMounts:
             - mountPath: /druid/tmp/druid-logs
