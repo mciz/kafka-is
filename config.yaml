@@ -60,31 +60,11 @@ items:
             - mountPath: /kafka/tmp/kafka-logs
               name: kafka-logs
             ports:
-            - containerPort: 9092 
-          - name: druid
-            image: ${IMAGE}
-            command:
-            - java
-            args:
-            - -Xmx256m
-            - -Duser.timezone=UTC
-            - -Dfile.encoding=UTF-8
-            - -Ddruid.realtime.specFile=/opt/druid/config/infispectorDruid.spec
-            - -classpath
-            - "config/_common:config/realtime:lib/*"
-            - io.druid.cli.Main server
-            - realtime
-            volumeMounts:
-            - mountPath: /druid/tmp/druid-logs
-              name: druid-logs
-            ports:
-            - containerPort: 8084        
+            - containerPort: 9092              
           volumes:
           - name: kafka-logs
             emptyDir: {}
           - name: zookeeper
-            emptyDir: {}
-          - name: druid-logs
             emptyDir: {}
   - apiVersion: v1
     kind: DeploymentConfig
@@ -105,7 +85,7 @@ items:
             command:
             - java
             args:
-            - -Xmx128m
+            - -Xmx256m
             - -Duser.timezone=UTC
             - -Dfile.encoding=UTF-8
             - -Ddruid.realtime.specFile=/opt/druid/config/infispectorDruid.spec
