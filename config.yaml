@@ -78,25 +78,25 @@ items:
         port: 2181
       selector:
         deploymentconfig: ${NAME}
-  - apiVersion: "v1"
-      kind: "LimitRange"
+  - apiVersion: v1
+      kind: LimitRange
       metadata:
-        name: "limits" 
+        name: limits
       spec:
         limits:          
           -
-            type: "Container"
+            type: Container
             max:
-              cpu: "1" 
-              memory: "256" 
+              cpu: 1 
+              memory: 256 
             min:
-              cpu: "100m" 
-              memory: "4Mi" 
+              cpu: 100m 
+              memory: 4Mi 
             default:
-              cpu: "200m" 
-              memory: "200Mi" 
+              cpu: 200m 
+              memory: 200Mi 
             defaultRequest:
-              cpu: "200m" 
-              memory: "100Mi" 
+              cpu: 200m 
+              memory: 100Mi 
             maxLimitRequestRatio:
-              cpu: "4" 
+              cpu: 4 
