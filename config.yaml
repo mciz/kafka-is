@@ -67,42 +67,6 @@ items:
           - name: zookeeper
             emptyDir: {}
   - apiVersion: v1
-    kind: DeploymentConfig
-    metadata:
-      name: ${NAME}-druid
-    spec:
-      replicas: 1
-      selector:
-        deploymentconfig: ${NAME}-druid
-      template:
-        metadata:
-          labels:
-            deploymentconfig: ${NAME}-druid
-        spec:
-          containers:
-          - name: druid
-            image: ${IMAGE}
-            command:
-            - java
-            args:
-            - -Xmx256m
-            - -XX:MaxDirectMemorySize=200000000
-            - -Duser.timezone=UTC
-            - -Dfile.encoding=UTF-8
-            - -Ddruid.realtime.specFile=/opt/druid/config/infispectorDruid.spec
-            - -classpath
-            - "/opt/druid/config/_common:/opt/druid/config/realtime:/opt/druid/lib/*"
-            - io.druid.cli.Main server
-            - realtime            
-            volumeMounts:
-            - mountPath: /druid/tmp/druid-logs
-              name: druid-logs
-            ports:
-            - containerPort: 8084        
-          volumes:          
-          - name: druid-logs
-            emptyDir: {}
-  - apiVersion: v1
     kind: Service
     metadata:
       name: ${NAME}
@@ -114,16 +78,6 @@ items:
         port: 2181
       selector:
         deploymentconfig: ${NAME}
-  - apiVersion: v1
-    kind: Service
-    metadata:
-      name: ${NAME}-druid
-    spec:
-      ports:      
-      - name: druid
-        port: 8084
-      selector:
-        deploymentconfig: ${NAME}-druid
   - apiVersion: "v1"
       kind: "LimitRange"
       metadata:
