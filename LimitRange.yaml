@@ -1,11 +1,11 @@
-- apiVersion: v1
-  kind: limitRange
+- apiVersion: "v1"
+  kind: "limitRange"
   metadata:
-    name: ${NAME}
+    name: "${NAME}"
   spec:
     limits:
       -
-        type: Container
+        type: "Container"
         max:
-          cpu: 1
-          memory: 256Mi
+          cpu: "1"
+          memory: "256Mi"
