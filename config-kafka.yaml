@@ -78,11 +78,3 @@ items:
         port: 2181
       selector:
         deploymentconfig: ${NAME}
-  - apiVersion: v1
-    kind: Route
-    metadata:
-      name: ${NAME}
-    spec:
-      to:
-        kind: Service
-        name: ${NAME}
