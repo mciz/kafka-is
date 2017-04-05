@@ -1,6 +1,6 @@
 {
   "apiVersion": "v1",
-  "kind": "limitRange",
+  "kind": "LimitRange",
   "metadata": {
     "name": "${NAME}"
   },
