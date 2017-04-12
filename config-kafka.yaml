@@ -7,7 +7,7 @@ items:
 - apiVersion: v1
   kind: Template
   metadata:
-    name: apache-kafka-zoo
+    name: apache-kafka
     annotations:
       description: 1-pod Apache Kafka + ZooKeeper
       tags: messaging,streaming,kafka
@@ -55,7 +55,11 @@ items:
             command:
             - kafka/bin/kafka-server-start.sh
             args:
-            - kafka/config/server.properties          
+            - kafka/config/server.properties 
+            - --override
+            - advertised.host.name=${NAME}
+            - --override
+            - zookeeper.connect=apache-kafka
             volumeMounts:
             - mountPath: /kafka/tmp/kafka-logs
               name: kafka-logs
