@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Route
+metadata:
+  name: infispector4
+  namespace: is-os2
+  selfLink: /oapi/v1/namespaces/is-os2/routes/infispector4
+  uid: a71c297c-1f8e-11e7-b3b6-0e3d364e19a5
+  resourceVersion: '1114541183'
+  creationTimestamp: '2017-04-12T14:45:20Z'
+  labels:
+    app: infispector4
+  annotations:
+    openshift.io/generated-by: OpenShiftWebConsole
+    openshift.io/host.generated: 'true'
+spec:
+  host: infispector4-is-os2.44fs.preview.openshiftapps.com
+  to:
+    kind: Service
+    name: infispector4
+    weight: 100
+  port:
+    targetPort: 8080-tcp
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: infispector4-is-os2.44fs.preview.openshiftapps.com
+      routerName: router
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2017-04-12T14:45:20Z'
+      wildcardPolicy: None
